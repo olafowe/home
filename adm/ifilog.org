@@ -1,4 +1,4 @@
-Log for arbeid ved IFI våren 2010
+Log for arbeid ved IFI våren 2021
 
 * Februar
 
@@ -10,9 +10,9 @@ tabell (dato timer beskrivelse}
 | dt | t | beskrivelse                                                                               |
 |----+---+-------------------------------------------------------------------------------------------|
 |  1 | 6 | ide til coordination paper (6+2pages) paper Chinmayi, Lizeth og Nils, zoom møte, revisjon |
-|  2 | 6 | revisjon av jlamp med Elahe                                                               |
-|  3 |   |                                                                                           |
-|  4 |   |                                                                                           |
+|  2 | 7 | revisjon av jlamp med Elahe                                                               |
+|  3 | 8 |  revisjon                                                                                 |
+|  4 | 7 |  tlf møte veiledning Tore, Chinm, revisjon                                               |
 |  5 |   |                                                                                           |
 |----+---+-------------------------------------------------------------------------------------------|
 |  8 |   |                                                                                           |
