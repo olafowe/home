@@ -1,0 +1,319 @@
+#  \usepackage{framed,color} definecolor{shadecolor}{rgb}{1,0.8,0.3}
+#+OPTIONS: toc:nil
+#+OPTIONS: H:2 toc:nil num:0
+# @:t ::t title:nil * This is the first structural section
+#
+#+TITLE: AtomIQ Master Projects
+#+AUTHOR: Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+#+EMAIL: oweolaf@gmail.com
+#+DATE:  13.5.2022, version II, 11.5.22
+#+DESCRIPTION:  UiO, AtomIQ meeting 
+#+SUBAUTHOR: Notes
+#+BEAMER_THEME: Rochester [height=20pt]
+# (setq org-image-actual-width nil)
+# #  \usepackage{geometry} 
+
+* Overall
+
+** Master Topics
+
+- Clarify our tasks. \\
+  /What should be decided about the system before the students start?/
+- Clarify the students' tasks
+
+- Clarify 6 Master Topics
+
+ - a smart contract for the AtomIQ investment and trading system in Solidity/Rust
+
+ - high-level description and analysis, security and trust
+
+ - constructing an IQ wallet and an associated app for mobile phones
+  
+ - interface to blockchain and blockchain support
+
+* Clarify our tasks: basic transactions
+** goals
+- one click trading 
+- immediate trading/investment (as far as possible)
+- auction when several interested parties
+** possible subgoals
+- automatic auctioning, without live interference from buyers/sellers? 
+#  - a transaction  is immediate (as far as possible)
+ - the  IQ price is decided by the pre-agreed price modulo auctioning?
+# - confirmation of a transaction is immediate?
+ - availability of funds after a transaction is immediate or end-of-day?
+ - there are no or few possibilities of transaction cancellations?
+** COMMENT functionality
+-  what kind of transactions 
+ - two-phase commit for trading?
+  1. a party/the system \\ announces an asset for sale with a given price and duration 
+  2. one or more parties commit to buy for the given price within the time duration
+  3. the seller selects one buyer (the "first"), and announces this fact to all committed buyers
+* auction system for trading
+ -  buyers indicate high  and low price, and desired quantity, time frame limits
+ - with conditions of different kinds (like quantity, priorities on different trading options, like in)
+ - possibly several high offers depending on conditions
+ - the desired quantity may have max and  min levels
+ - other options like in /composer.trade/
+ - optimized for the buyers, if seller was first? (modulo conditions)
+ - optimized for the seller, if buyer  was first? (modulo conditions)
+ - higher quantity can give priority?
+ - first come, first serve?
+ - more complicated scheme?
+ - dashboard for all settings
+
+* some questions
+** distribution 
+ - announcements goes through the AtomIQ system or distributed?
+ - i.e. selling party makes announcement to the system center
+ - or sends a broadcast, and trading is done independently for non-overlapping trading?
+** the actual trading
+ - funds locked already when buyers indicate wish to buy, or
+ - price may increase due to other traders, so pre-locking funds is not easy
+ - checking/locking funds at actual trading, otherwise
+ - fall back/cancellation of the transaction
+ - auction redone if other buyers present
+** possible transaction failure   
+ - are there other possibilities for transaction cancellation?
+ - seller changes mind and is withdrawing the offer to sell
+# - what about a buyer in step 2 almost at the same time
+ - buyer just outside duration?
+   
+# (or decided by step 2)
+** COMMENT who wins
+- first buyer as seen by seller wins? or
+# - first buyer as seen by the system wins? 
+- step 3 done by the system center
+
+* Cost model
+** Goal: fee for each  transaction
+ - in real money?
+ - fee for each (successful) transaction 
+ - paid by buyer, nothing for seller?
+ - fee for failing transactions
+ - payed by buyer
+* what can we trade
+ - shares in a company/start-up
+ - value of ideas? NO?
+ - IQs for real money
+ - immediate!
+ - IQs to real money
+ - not always immediate
+
+* Trust
+** how do we ensure that we can trade IQs back to real money
+ - buffer
+ - many users help
+ - may need to delay IQ to real money transfers
+ - ways/incentives to sell IQ to real money, when needed
+ - ...
+
+* Security and privacy
+** security
+ - two-factor authentication of parties?
+ - biometric
+ - from registered device
+ - open source of parts of the system?
+ - transactions visible to whom?
+** privacy
+ - encryption of transaction data?
+ - how long are the data stored?
+ - user changes in privacy consent?
+ - limitations of third party usage?
+ 
+* Digital wallets
+ - IQ
+ - shares?
+ - ...
+
+
+* Master Topics
+  
+* Master Topic 1: Smart contract for an investment and trading system
+
+The thesis is part of the overall task of developing a trading system
+for assets, such as shares in a start-up company, using a new digital
+currency called IQ.  The main task is to make a smart contract in
+Rust/Solidity for supporting the business transactions that should be
+possible for uses of the AtomIQ investment and trading platform.
+
+The system should be distributed allowing multiple registered parties
+to invest and trade at the same time. Transactions should appear to
+be immediate for users, while the implementation will use an auction
+process to do the actual trading which should be as fast as possible.
+
+Possibilities of transaction failure should be investigated. Such
+failure should be avoided as much as possible, but if they appear they
+should be compensated by appropriate fault handling mechanisms,
+possibly including roll-back.
+
+The assets in this case will be the companies listed on the AtomIQ
+market place (the stock exchange), and these assets will be treated as tokens.
+The system will use its own digital currency, called IQ,
+and the trading of shares will be done through the IQ currency.
+IQ can be traded against other kinds of token, including real currencies.
+
+A user may have an electronic wallet, either an AtomIQ wallet with IQs
+or another kind of digital wallet
+which can convert into a real currency (like USD or Euro).
+# Compatible with the AtomIQ platform.
+
+# Tokenisation
+We will need to develop an integrated tokenisation engine. The major work connected to developing the tokenisation engine is connected to business process, the actual code is simple, it is more about defining what are the business models involved, what are the transaction fees, and how are they calculated.
+# Would this be a separate Master thesis?
+
+* COMMENT xx
+We would need to give the student an interface of the system describing the functionalities we want. So that means we would need to know all these functionalities and give a high-level specification of them.
+
+
+* Master Topic 2: Modeling and analysis of trust, safety, security and privacy
+This thesis should make a high-level description of the proposed investment and 
+trading system, and analyse security and trust issues, as detailed
+below. Finally it should suggest changes to the investment and trading system based
+on the results of the analysis.
+
+
+ - high-level description and analysis of the investment and trading system
+ - prototyping
+ - simulation
+ - analysis of violations and attacks
+ - analysis of security issues, and vulnerabilities
+ - encryption
+ - analysis of privacy 
+ - handling of retention and user changes in privacy consent?
+ - restriction on third party usage
+ - analysis of trust
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+   
+* Master Topic 3: Constructing an IQ Wallet and an associated app 
+
+To construct an IQ wallet to allow ERC20 and ERC721 operations. The Wallet 
+will contain IQ digital currency and integrate with browsers and AtomIQ App.
+
+The Wallet must implement authentication and identity confirmation. The requirements 
+must observe security aspects and regulatory compliance.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+
+* Master Topic 4: Interface between blockchain and AtomIQ (Oracle)
+
+To develop smart contracts to allow tamper-proof communication between blockchain and 
+AtomIQ Intelligence Component (back-end). This thesis must involve developing and testing 
+smart contracts for Chainlink or similar products, using the Solidity programming language.
+
+The financial information update must be as fast as possible. The communication service speed 
+is an essential requirement to create efficient financial services.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+
+* Master Topic 5: Usability aspects of a system for investment and trading in deep tech companies
+
+*Usability aspects of a mobile app with a digital wallet*
+(1 to 2 students)
+
+
+The Stock Exchange as an Innovation Engine.
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech startups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+AtomIQ’s mission is to provide the world’s premier stock exchange and ecosystem for capital markets and deep tech startups. The purpose of this system (platform) is to enable a liquid marketplace for deep tech startups while guiding startups and maximising their chance of succeeding and minimising the involved risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in private companies that are listed on an integrated electronic exchange. Functionality is enhanced by AI/ML -powered services, and micro services running in the cloud, combined with DLT/Blockchain and smart contracts.
+
+
+   The purpose of this thesis is to design a user-friendly interface
+   of a mobile app for the digital trading system.
+   It is essential that the design of the app is very simple and easy to use
+   and that the relevant information is easily available.
+   An example of a similar and successful app: /Robinhood/
+# (\url{https://robinhood.com/us/en/})
+#  (ht tps://robinhood.com/us/en/)
+\url{robinhood.com/us/en/}
+   which is known for pioneering commission-free trades of stocks, exchange-traded funds and cryptocurrencies via a mobile app.
+
+   
+   The proposed interface needs to support all these services in a userfriendly manner.
+   This requires experimentation with users through interviews and surveys, while developing prototypes
+
+   Simulation and game theory can be used to give realistic testing of the system and its services.
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+   
+* Master Topic 6: Usability aspects of a system for investment and trading in deep tech companies
+
+** Usability aspects of a web interface for decentralised finance applications (DFA)
+
+(1 to 2 students)
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech startups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+AtomIQ’s mission is to provide the world’s premier stock exchange and ecosystem for capital markets and deep tech startups. The purpose of this system (platform) is to enable a liquid marketplace for deep tech startups while guiding startups and maximising their chance of succeeding and minimising the involved risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in private companies that are listed on an integrated electronic exchange. Functionality is enhanced by AI/ML -powered services, and micro services running in the cloud, combined with DLT/Blockchain and smart contracts.
+   
+   This topic is about investigating a suitable interface for the DFA.
+   The system will have functionality covering a wide range of services, including
+   - investment
+   - trading
+   - settlement 
+   - marked signals (trends, alerts)
+   - market analysis (query, search)
+   - portfolio selection
+   - portfolio management
+     
+   The service should be integrated in a kind of dashboard with visualisation of the
+   different services and real-time information about the relevant financial markets.
+
+   The proposed interface needs to support all these services in a user-friendly manner.
+   This requires experimentation with users through interviews and surveys, while developing prototypes.
+
+   Simulation and game theory can be used to give realistic testing of the system and its services.
+   
+   
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+
+*  Something to think about  and Notes
+  
+     ontology-based search application
+
+     For us: value of IQ given by the overall value of all shares on the AtomIQ platform.
+
+     Buying through Exchange-Traded Funds (for example a 'Quantum ETF') or though a fine-grained selection of companies.
+
+     What affects the IQ value ?
+
+     What about the real money: Keep a liquidity buffer through bank accounts in
+     digital stable currencies (USDC) -- or fiat currency.
+     main real currencies.
+
+     Circle is the issuer of USDC (a US company)
+
+     We let another company do the transaction? (Binance, Coinbase, other)
+
+     Wallet - credit card - exchange to IQ - exchange to shares
+
+     Soros - collapsed the B. pound
+     
+     Betting against IQ -> problems
+
+     Improve transparency
