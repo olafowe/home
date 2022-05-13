@@ -236,6 +236,30 @@ We will need to develop an integrated tokenisation engine. The major work connec
 # Would this be a separate Master thesis?
 
 * Master Topic 2: Modeling and analysis of trust, safety, security and privacy
+
+** The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+The major work connected to developing the tokenisation engine is connected to business process. The actual code is simple, so this is more about defining what are the business models involved, what are the transaction fees, and how are they calculated.
+
+# Would this be a separate Master thesis?
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+*  xxx
 This thesis should make a high-level description of the proposed investment and 
 trading system, and analyse security and trust issues, as detailed
 below. Finally it should suggest changes to the investment and trading system based
