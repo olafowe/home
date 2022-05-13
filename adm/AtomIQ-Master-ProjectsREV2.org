@@ -1,0 +1,465 @@
+
+#+TITLE: AtomIQ Master Projects
+#+AUTHOR: Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+#+EMAIL: oweolaf@gmail.com
+#+DATE:  13.5.2022, version II, 13.5.22
+#+DESCRIPTION:  UiO, AtomIQ meeting 
+#+SUBAUTHOR: Notes
+#+BEAMER_THEME: Rochester [height=20pt]
+# (setq org-image-actual-width nil)
+# #  \usepackage{geometry} 
+#+OPTIONS: toc:nil
+#+OPTIONS: H:2 toc:nil num:0
+# @:t ::t title:nil * This is the first structural section
+#
+* Overall
+
+** Master Topics
+
+- Clarify our tasks. \\
+  /What should be decided about the AtomIQ platform before the students start?/
+- Clarify the students' tasks
+
+- Clarify 8 Master Topics
+
+ - a smart contract for the AtomIQ investment and trading platform in Solidity/Rust
+
+ - high-level description and analysis, security and trust
+
+ - constructing an IQ wallet and an associated app for mobile phones
+  
+ - interface to blockchain and blockchain support
+
+* Clarify our tasks: basic transactions
+** goals
+- one click trading 
+- immediate trading/investment (as far as possible)
+- auction when several interested parties
+** possible subgoals
+- automatic auctioning, without live interference from buyers/sellers? 
+#  - a transaction  is immediate (as far as possible)
+ - the  IQ price is decided by the pre-agreed price modulo auctioning?
+# - confirmation of a transaction is immediate?
+ - availability of funds after a transaction is immediate or end-of-day?
+ - there are no or few possibilities of transaction cancellations?
+** COMMENT functionality
+-  what kind of transactions 
+ - two-phase commit for trading?
+  1. a party/the platform \\ announces an asset for sale with a given price and duration 
+  2. one or more parties commit to buy for the given price within the time duration
+  3. the seller selects one buyer (the "first"), and announces this fact to all committed buyers
+* auction platform for trading
+ -  buyers indicate high  and low price, and desired quantity, time frame limits
+ - with conditions of different kinds (like quantity, priorities on different trading options, like in)
+ - possibly several high offers depending on conditions
+ - the desired quantity may have max and  min levels
+ - other options like in /composer.trade/
+ - optimised for the buyers, if seller was first? (modulo conditions)
+ - optimised for the seller, if buyer  was first? (modulo conditions)
+ - higher quantity can give priority?
+ - first come, first serve?
+ - more complicated scheme?
+ - dashboard for all settings
+
+* Some questions
+** distribution 
+ - announcements goes through the AtomIQ platform or distributed?
+ - i.e. selling party makes announcement to the platform center
+ - or sends a broadcast, and trading is done independently for non-overlapping trading?
+** the actual trading
+ - funds locked already when buyers indicate wish to buy, or
+ - price may increase due to other traders, so pre-locking funds is not easy
+ - checking/locking funds at actual trading, otherwise
+ - fall back/cancellation of the transaction
+ - auction redone if other buyers present
+** possible transaction failure   
+ - are there other possibilities for transaction cancellation?
+ - seller changes mind and is withdrawing the offer to sell
+# - what about a buyer in step 2 almost at the same time
+ - buyer just outside duration?
+   
+# (or decided by step 2)
+** COMMENT who wins
+- first buyer as seen by seller wins? or
+# - first buyer as seen by the platform wins? 
+- step 3 done by the platform center
+
+* Cost model
+** Goal: fee for each transaction
+ - in real money?
+ - fee for each (successful) transaction 
+ - paid by buyer, nothing for seller?
+ - fee for failing transactions
+ - payed by buyer
+* what can we trade
+ - shares in a company/start-up
+ - value of ideas? NO?
+ - IQs for real money
+ - immediate!
+ - IQs to real money
+ - not always immediate
+
+* Trust
+** how do we ensure that we can trade IQs back to real money
+ - buffer
+ - many users help
+ - may need to delay IQ to real money transfers
+ - ways/incentives to sell IQ to real money, when needed
+ - ...
+
+* Security and privacy
+** security
+ - two-factor authentication of parties?
+ - biometric
+ - from registered device
+ - open source of parts of the platform?
+ - transactions visible to whom?
+** privacy
+ - encryption of transaction data?
+ - how long are the data stored?
+ - user changes in privacy consent?
+ - limitations of third party usage?
+ 
+* Digital wallets
+ - IQ
+ - shares?
+ - ...
+
+* COMMENT xx
+
+We would need to give the student an interface of the platform describing the functionalities we want. So that means we would need to know all these functionalities and give a high-level specification of them.
+
+# Tokenisation
+
+
+
+* Master Topics
+
+  
+* Master Topic 1: Smart contract for an investment and trading platform
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global
+democratic and transparent financing system for science based
+innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups,
+   retail and institutional investors alike can invest in the private
+   equity class at scale.
+
+ - This will increase the availability of assets for investment in the
+   private equity class worldwide, effectively financing more deep
+   tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of
+   liquidity, allowing investors to engage in short term private
+   equity trading.
+
+We are building a global stock exchange and ecosystem for capital
+markets and deep tech start-ups. The purpose of this platform is to
+enable a liquid marketplace for buying and selling shares in deep tech
+start-ups. Furthermore, the platform while provide guidance to
+start-ups for maximising business success and minimising the
+investment risk for investors and traders. AtomIQ will provide a
+technical and legal framework for investors to engage in efficient and
+streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+The thesis is part of the overall task of developing a trading platform
+for assets, such as shares in a start-up company, using a new digital
+currency called IQ.  The main task is to make a smart contract in
+Rust/Solidity for supporting the financial transactions that should be
+possible for users of the AtomIQ investment and trading platform.
+
+The platform should be distributed allowing multiple registered parties
+to invest and trade at the same time at scale. Transactions should appear to
+be immediate for users, while the implementation will use an auction
+process to do the actual trading which should be as fast as possible.
+
+The selection of the proper auction process should be investigated.
+
+Possibilities of transaction failure should be investigated too. Such
+failure should be avoided as much as possible, but if failures occurs they
+should be compensated by appropriate fault handling mechanisms,
+possibly including roll-back.
+
+The assets in this case will be the stocks in the companies listed on the AtomIQ
+electronic market place, which will be made available as tokens.
+The platform will use its own digital currency, called IQ,
+and the trading of shares will be done through the IQ currency.
+IQ can be exchanged for other kinds of token like e.g., BTC, ETH,
+stablecoins, and also for real currencies.
+
+A user may have an electronic wallet, either an AtomIQ wallet with IQs
+or another kind of digital wallet
+which can convert into a real currency (like USD or Euro).
+# Compatible with the AtomIQ platform.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+
+* Master Topic 2: Integrated tokenisation engine
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+The major work connected to developing the tokenisation engine is connected to business process. The actual code is simple, so this is more about defining what are the business models involved, what are the transaction fees, and how are they calculated.
+
+# Would this be a separate Master thesis?
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+
+* Master Topic 3: Modeling and analysis of trust, safety, security and privacy
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+This thesis should make a high-level description of the proposed investment and 
+trading platform, and analyse security and trust issues, as detailed
+below. Finally it should suggest changes to the investment and trading platform based
+on the results of the analysis.
+
+
+ - High-level description and analysis of the investment and trading platform
+ - Prototyping
+ - Simulation
+ - Analysis of violations and attacks
+ - Analysis of security issues, and vulnerabilities
+ - Encryption
+ - Analysis of privacy 
+ - Handling of retention and user changes in privacy consent?
+ - Restriction on third party usage
+ - Analysis of trust
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+      
+* Master Topic 4: Constructing an IQ Wallet and an associated app
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+To construct an IQ wallet to allow ERC20 and ERC721 operations. The Wallet 
+will contain IQ digital currency and integrate with browsers and AtomIQ App.
+
+The Wallet must implement authentication and identity confirmation. The requirements 
+must observe security aspects and regulatory compliance.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+ 
+* Master Topic 5: Interface between blockchain and AtomIQ (Oracle)
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+To develop smart contracts to allow tamper-proof communication between blockchain and the
+AtomIQ Intelligence Component (back-end). This thesis must involve developing and testing 
+smart contracts for Chainlink or similar products, using the Solidity programming language.
+
+The financial information update must be as fast as possible. The communication service speed 
+is an essential requirement to create efficient financial services.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+      
+
+* Master Topic 6: Usability aspects of a platform for investment and trading in deep tech start-ups
+
+** Usability aspects of a mobile app with a digital wallet
+
+(1 to 2 students)
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+   The purpose of this thesis is to design a user friendly interface
+   of a mobile app for the electronic investment and trading platform.
+   It is essential that the design of the app is intuitive, very simple and easy to use
+   and that the relevant information is easily available.
+   An example of a similar and successful app: /Robinhood/ (https://robinhood.com/us/en/)
+   which is known for pioneering commission-free trades of stocks, exchange-traded funds and cryptocurrencies via a mobile app.
+
+   
+   The proposed interface needs to support all these services in a user friendly manner.
+   This requires experimentation with users through interviews and surveys, while developing prototypes
+
+   Simulation and game theory can be used to give realistic testing of the platform and its services.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+         
+* Master Topic 7: Usability aspects of a platform for investment and trading in deep tech start-ups
+
+** Usability aspects of a web interface for the AtomIQ platform.
+
+(1 to 2 students)
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+   
+   This topic is about investigating a suitable interface for the AtomIQ platform
+   The platform will have functionality covering a wide range of services, including
+
+   - investment
+   - trading
+   - clearing
+   - settlement 
+   - market signals (trends, alerts)
+   - market analysis (query, search)
+   - stock screening
+   - portfolio management
+   - portfolio analysis (risk management, portfolio diversification, optimisation)
+     
+   The service should be integrated in a kind of dashboard with visualisation of the
+   different services and relevant real-time information.
+
+   The proposed interface needs to support all these services in an intuitive and user-friendly manner.
+   This requires experimentation with users through interviews and surveys, while developing prototypes.
+
+   Simulation and game theory can be used to give realistic testing of the platform and its services.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+      
+* Master Topic 8: Tokenomics
+
+** Modelling of the economic theory underpinning the tokenisation of shares in deep tech start-up companies on the platform.
+
+
+The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global democratic and transparent financing system for science based innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, retail and institutional investors alike can invest in the private equity class at scale. 
+
+ - This will increase the availability of assets for investment in the private equity class worldwide, effectively financing more deep tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of liquidity, allowing investors to engage in short term private equity trading.
+
+We are building a global stock exchange and ecosystem for capital markets and deep tech start-ups. The purpose of this platform is to enable a liquid marketplace for buying and selling shares in deep tech start-ups. Furthermore, the platform while provide guidance to start-ups for maximising business success and minimising the investment risk for investors and traders. AtomIQ will provide a technical and legal framework for investors to engage in efficient and streamlined trading of equity stakes in deep tech start-up companies.
+
+
+Scope of Thesis:
+
+Here goes the description of the problem: XXXX
+
+   
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (Atomiq AS), Dr. Shao Ju Woo (Atomiq AS)
+
+
+
+*  Something to think about
+  
+     Ontology-based search application
+
+     For us: Value of IQ is given by the overall value of all shares on the AtomIQ platform. This means IQ has collateral in all stocks in all start-ups listed on AtomIQ. 
+
+     Buying through Exchange-Traded Funds (for example a 'Quantum ETF') or though a fine-grained selection of companies.
+
+     What affects the IQ value ?
+
+     What about the real money: Keep a liquidity buffer through bank accounts in
+     digital stable currencies (USDC) -- or fiat currency.
+     main real currencies.
+
+     Circle is the issuer of USDC (a US company)
+
+     Should we let another company do the exchange of IQ for other kinds of token like e.g., BTC, ETH, stablecoins, and also for real currencies? (Binance, Coinbase, other).
+
+     Wallet - credit card - exchange to IQ - exchange to shares
+
+     Soros - collapsed the B. pound
+     
+     Betting against IQ -> problems
+
+     Improve transparency

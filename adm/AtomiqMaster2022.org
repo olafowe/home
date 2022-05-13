@@ -35,7 +35,7 @@
 ** goals
 - one click trading 
 - immediate trading/investment (as far as possible)
-- auction when several interested parties
+- automatic auction when several interested parties
 ** possible subgoals
 - automatic auctioning, without live interference from buyers/sellers? 
 #  - a transaction  is immediate (as far as possible)
@@ -131,6 +131,79 @@
   
 * Master Topic 1: Smart contract for an investment and trading system
 
+
+** The Stock Exchange as an Innovation Engine
+
+To accelerate the development of deep tech at scale, a global
+democratic and transparent financing system for science-based
+innovation is urgently needed:
+
+ - By providing a global stock exchange for deep tech start-ups, enabling
+   retail and institutional investors alike  to invest in the private
+   equity class at scale.
+
+ - This will increase the availability of assets for investment in the
+   private equity class world-wide, effectively financing more deep
+   tech innovation.
+
+ - A distinguishing and truly disruptive feature is the provision of
+   liquidity, allowing investors to engage in short term private
+   equity trading.
+
+We are building a global stock exchange and ecosystem for capital
+markets and deep tech start-ups. The purpose of this platform is to
+enable a liquid marketplace for buying and selling shares in deep tech
+start-ups. Furthermore, the platform 
+# while 
+will provide guidance to
+start-ups for maximising business success and minimising the
+investment risk for investors and traders. AtomIQ will provide a
+technical and legal framework for investors to engage in efficient and
+streamlined trading of equity stakes in deep tech start-up companies.
+
+
+** Scope of Thesis:
+
+The thesis is part of the overall task of developing a trading platform
+for assets, such as shares in a start-up company, using a new digital
+currency called IQ.  The main task is to make a smart contract in
+Rust/Solidity for supporting the financial transactions that should be
+possible for users of the AtomIQ investment and trading platform.
+
+The platform should be distributed allowing multiple registered parties
+to invest and trade at the same time at scale. Transactions should appear to
+be immediate for users, while the implementation will use an auction
+process to do the actual trading which should be as fast as possible.
+
+The selection of the proper auction process should be investigated.
+
+Possibilities of transaction failure should be investigated too. Such
+failure should be avoided as much as possible, but if failures occurs they
+should be compensated by appropriate fault handling mechanisms,
+possibly including roll-back.
+
+The assets in this case will be the stocks in the companies listed on the AtomIQ
+electronic market place, which will be made available as tokens.
+The platform will use its own digital currency, called IQ,
+and the trading of shares will be done through the IQ currency.
+IQ can be exchanged for other kinds of token like e.g., BTC, ETH,
+stablecoins, and also for real currencies.
+
+A user may have an electronic wallet, either an AtomIQ wallet with IQs
+or another kind of digital wallet
+which can convert into a real currency (like USD or Euro).
+# Compatible with the AtomIQ platform.
+
+
+/Supervisors:/ Prof. Arlindo Flavio Da Conceiçao, Prof. Olaf Owe, Mr. Axel P. Mustad (AtomIQ AS), Dr. Shao Ju Woo (AtomIQ AS)
+
+
+* COMMENT xx
+We would need to give the student an interface of the system
+describing the 
+functionalities we want. So that means we would need to know all these functionalities and give a high-level specification of them.
+
+
 The thesis is part of the overall task of developing a trading system
 for assets, such as shares in a start-up company, using a new digital
 currency called IQ.  The main task is to make a smart contract in
@@ -161,10 +234,6 @@ which can convert into a real currency (like USD or Euro).
 # Tokenisation
 We will need to develop an integrated tokenisation engine. The major work connected to developing the tokenisation engine is connected to business process, the actual code is simple, it is more about defining what are the business models involved, what are the transaction fees, and how are they calculated.
 # Would this be a separate Master thesis?
-
-* COMMENT xx
-We would need to give the student an interface of the system describing the functionalities we want. So that means we would need to know all these functionalities and give a high-level specification of them.
-
 
 * Master Topic 2: Modeling and analysis of trust, safety, security and privacy
 This thesis should make a high-level description of the proposed investment and 
