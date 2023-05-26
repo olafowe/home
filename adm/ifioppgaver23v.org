@@ -1,0 +1,113 @@
+#+TITLE: Oppgaver for IfI våren 2023
+# +OPTIONS: toc:2          (only include two levels in TOC)
+#+OPTIONS: toc:nil        (no default TOC at all)
+
+# * Oppgaver utført høsten 2022
+
+
+
+* Veiledning
+
+** Master
+
+Sammen med andre ved BlockChain lab har jeg formulert 9 master oppgaver
+(hvor flere av dem er for mer enn 1 student)
+ til et trading system med en egen digital valuta.
+Flere forskningsgrupper ved IfI og andre instittuer ved UiO,  samt et firma er med på dette.
+Se 
+https://www.mn.uio.no/ifi/english/research/networks/blockchainlab/
+master-projects-connected-to-a-blockchain-based-equity-investment-and-trading-platform.pdf
+Vi har hatt innledende møter med potensielle masterstudenter her.
+
+
+Videre er jeg  satt opp som medveileder for master og doktorgradsstudenter
+på PriTEM prosjektet.
+
+
+** PhD
+Dette semesteret har Farzane Karami jobbet med
+ avhandling, gjort den ferdig og levert den (i mai).
+Jeg har dessuten jobbet med  Hamed Arshad som nylig ble feridg,
+i forbindelse med publisering av arbeider fra doktorgraden
+
+Jeg har jobbet jevnlig med Chinmayi
+
+høsten har jeg veiledet 4 PhD studenter
+og en av disse, Hamed Arshad, ble nylig ferdig.
+I og med at Christian Johansen har sluttet ved UiO
+tok jeg  mer ansvar for veiledningen av Hamed Arshad.
+ 
+
+*** Avlagte dr. grader
+- Johanna Johansen (hovedveileder) Disputas Juni 2022
+- Hamed Arshad  (medveileder) Disputas 2.12.22
+
+# * Mer detaljert oversikt over  veiledningsoppgaver
+** Oversikt over videre PhD veiledning:
+
+- Marius Geitle  (hovedveileder) forventes ferdig i 2023
+- Farzane Karami  (hovedveileder) forventes ferdig i 2023
+- Chinmayi Prabhu Prasad Baramashetru  (medveileder) forventes ferdig
+  i 2024
+# ** ferdige PhD
+
+
+* Prosjektarbeid
+Jeg er med på PriTEM 
+https://www.mn.uio.no/ifi/english/research/projects/pritem/index.html
+
+Jeg er involvert i et prosjekt med AtomIQ AS sammen med UiO Blockchain Lab.
+
+Den  EU søknaden omkring multi-robot systemer
+som jeg var med på  i vår fikk meget god evaluering, dog ikke støtte.
+Vi har begynt samtaler mot en ny søknad.
+
+
+* Annet 
+Jeg er med i styret av BlockChain Lab ved IfI
+https://www.mn.uio.no/ifi/english/research/networks/blockchainlab/
+
+Jeg er involvert i planlegging av  samarbeid mellom AtomIQ AS og  UiO BlockChain Lab.
+
+** COMMENT Oversikt over master veiledning:
+- Lea Nikoline Nøstdahl (hovedveileder) forventes ferdig i 2022
+- Victoria Hyun Oh (hovedveileder) forventes ferdig i 2022
+- Haakon Staff (hovedveileder) forventes ferdig i 2022
+- Lara Okafor (medveileder) forventes ferdig i 2022
+
+* Publikasjoner
+#  ** Tidss
+- Hamed Arshad, Christian Johansen, Olaf Owe, Pablo Picazo-Sanchez,
+  Gerardo Schneider: 
+ /Semantic Attribute- Based Encryption: A Framework for Combining ABE
+  schemes with Semantic Technologies./
+ *Information Sciences* 2022,
+  https://doi.org/10.1016/j.ins.2022.10.132
+- Hamed Arshad, Christian Johansen, Olaf Owe: 
+ /Semantic Attribute-Based   Access Control: A review on current
+  status and future perspectives./ 
+ *Journal of Syst. Archit.* 129: 102625 (2022)
+- Hamed Arshad, Ross Horne, Christian Johansen, Olaf Owe, Tim
+  A. C. Willemse: 
+ /XACML2mCRL2: Automatic Transformation of XACML Policies into mCRL2 Specifications/,
+  Submitted to *Science of Computer  Programming* as VSI: DisCoTec 2022 Artifacts, Nov. 2022.
+
+- Hamed Arshad, Ross Horne, Christian Johansen, Olaf Owe, Tim
+  A. C. Willemse: 
+  /Process Algebra Can Save Lives: Static Analysis of  XACML Access Control Policies Using mCRL2/. 
+  *Lecture Notes in  Computer Science*, vol 13273. FORTE 2022: 11-30, Springer, 2022
+-  Chinmayi Prabhu Baramashetru, S. Lizeth Tapia Tarifa, Olaf Owe, and
+   Nils Gruschka: 
+ /A Policy Language to Capture  Compliance of Data Protection Requirements./
+   *Lecture Notes in Computer Science*, vol 13274,
+   pp. 289-309. Springer, 2022.
+
+
+Software No.: SCICO-D-22-00293 
+Title:  
+Ross Horne ross.horne@uni.lu, "Christian Johansen" christian.johansen@ntnu.no, "Olaf Owe" olaf@ifi.uio.no, "Tim A. C. Willemse" t.a.c.willemse@tue.nl
+
+XACML2mCRL2: Automatic Transformation of XACML Policies into mCRL2 Specifications  
+Science of Computer Programming, in revision, 2023
+
+a journal paper has been nominated for best paper award
